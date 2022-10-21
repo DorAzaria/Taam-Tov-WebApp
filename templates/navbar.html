@@ -1,0 +1,19 @@
+{% load static %}
+
+<header class="header">
+    <div class="container container--narrow">
+
+      <a href="{% url 'homepage' %}" class="header__logo" style="margin-right: 47.5rem;">
+        <img  src="{% static 'images/logo.png' %}" alt="TaamTov Logo" />
+      </a>
+
+
+      <nav class="header__nav">
+        <input type="checkbox" id="responsive-menu" />
+        <label for="responsive-menu" class="toggle-menu">
+          <span>Menu</span>
+          <div class="toggle-menu__lines"></div>
+        </label>
+      </nav>
+    </div>
+</header>

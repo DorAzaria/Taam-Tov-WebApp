@@ -1,0 +1,154 @@
+{% load static %}
+
+
+
+
+<div class="sidenav">
+
+    <br><br><br>
+    <p style="text-align: center; font-size: small;" >- פרסומת -</p>
+    <a href="https://milky.co.il/"><img height="300px" width="50px" style="margin-left: 10; padding: 15px;  
+    " src="{% static 'images/milkimix.jpg' %}"></a>
+    <a href="https://www.elal.com/"><img style="margin-left: 10; padding: 15px;  
+        " src="{% static 'images/ads.jpg' %}"></a>
+
+
+    
+</div>
+
+<div class="sidebar">
+    {% if request.user.is_authenticated %}
+
+    <a href="{% url 'homepage' %}">
+        <div id="contact_img">
+            <img src="{% static 'images/icons/homepage.png' %}" />
+            דף הבית
+        </div>
+    </a>
+
+    <a href="{% url 'account' %}">
+        <div id="contact_img">
+            <img src="{% static 'images/icons/profile.png' %}" />
+            {{request.user.first_name}} {{request.user.last_name}}
+        </div>
+    </a>
+
+    <a href="{% url 'chart' %}">
+        <div id="contact_img">
+            <img src="{% static 'images/icons/first-place-ribbon.png' %}" />
+            המצעד
+        </div>
+    </a>
+
+    <a href="{% url 'recipes' %}">
+    <div id="contact_img">
+        <img src="{% static 'images/icons/recipes.png' %}" />
+        מתכונים
+    </div>
+    </a>
+
+    <a href="{% url 'create-recipe' %}">
+        <div id="contact_img">
+            <img src="{% static 'images/icons/new_recipe.png' %}" />
+            מתכון חדש
+        </div>
+    </a>
+
+    <a href="{% url 'recipes' %}">
+        <div id="contact_img">
+            <img src="{% static 'images/icons/restaurant.png' %}" />
+            מסעדות
+        </div>
+    </a>
+
+    <a href="{% url 'recipes' %}">
+        <div id="contact_img">
+            <img src="{% static 'images/icons/lists.png' %}" />
+            רשימות
+        </div>
+    </a>
+
+    <a href="{% url 'profiles' %}">
+        <div id="contact_img">
+            <img src="{% static 'images/icons/users.png' %}" />
+            משתמשים
+        </div>
+    </a>
+
+    <a href="{% url 'inbox' %}">
+        <div id="contact_img">
+            <img src="{% static 'images/icons/message.png' %}" />
+            תיבת הודעות
+        </div>
+    </a>
+
+    <a href="#noti">
+        <div id="contact_img">
+            <img src="{% static 'images/icons/notification.png' %}" />
+            עדכונים
+        </div>
+    </a>
+
+    <a href="{% url 'logout' %}"> 
+        <div id="contact_img" >
+            <img src="{% static 'images/icons/logout.png' %}" />
+            התנתק
+        </div>
+    </a>
+
+    {% else %}
+
+    <a href="{% url 'homepage' %}">
+ <div id="contact_img">            
+    <img src="{% static 'images/icons/homepage.png' %}" />
+            דף הבית
+        </div>
+    </a>
+
+    <a href="{% url 'chart' %}">
+        <div id="contact_img">
+            <img src="{% static 'images/icons/first-place-ribbon.png' %}" />
+            המצעד
+        </div>
+    </a>
+
+    <a href="{% url 'recipes' %}">
+    <div id="contact_img">
+        <img src="{% static 'images/icons/recipes.png' %}" />
+        מתכונים
+    </div>
+    </a>
+
+    <a href="{% url 'recipes' %}">
+        <div id="contact_img">
+            <img src="{% static 'images/icons/restaurant.png' %}" />
+            מסעדות
+        </div>
+    </a>
+
+    <a href="{% url 'recipes' %}">
+        <div id="contact_img">
+            <img src="{% static 'images/icons/lists.png' %}" />
+            רשימות
+        </div>
+    </a>
+
+    <a href="{% url 'profiles' %}">
+        <div id="contact_img">
+            <img src="{% static 'images/icons/users.png' %}" />
+            משתמשים
+        </div>
+    </a>
+
+    <a href="{% url 'login' %}">
+        <div id="contact_img">
+            <img src="{% static 'images/icons/login.png' %}" />
+            התחבר/הרשם
+        </div>
+    </a>
+        
+    {% endif %}
+
+
+</div>
+  
