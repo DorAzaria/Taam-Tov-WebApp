@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>  האם את/ה בטוח/ה למחוק את המתכון "{{object}}" </p>
+    <a href="{% url 'recipes' %}">חזור</a>
+    <input type="submit" value="Confirm" />
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<main class="projects">
+    <!-- <section class="hero-section text-center">
+      <div class="container container--narrow" >
+        <div class="hero-section__box">
+          <h2><span>מצעד המתכונים</span></h2>
+        </div>
+      </div>
+    </section> -->
+    <div class="content-box-top" style="margin-top: -5.5rem;">
+        
+      <div class="wrapperchartcard">
+
+          <!-- Using an img TAG -->
+          <div class="cardchart has-bg-img" style="background-image: url(https://images.unsplash.com/photo-1571091655789-405eb7a3a3a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80); width: 900px; margin-top: 8rem;">
+            <div id="grid" style="margin-top: 5rem; margin-right: 24rem;">
+              <div id="item1">
+                <span class="cardchart__title" style="color: white; font-size: 60px;">TOP 100</span>
+              </div>
+              <div id="item2">
+                <button class="btn btn--main" style="background-color: #FFC72C; color: black; font-weight: bold; font-size: 20px; width: 350px; ">מתכונים</button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <div class="formWrapper">
+        <div class="grid-container" style="  
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        grid-gap: 10px;
+        padding: 10px;
+        margin-right: 3rem;
+        margin-top: -1rem;"
+        >
+          <div class="item1">                
+            <button class="btn btn--main" style="background-color: #FFC72C; color: black; font-weight: bold; font-size: 15px; width: 120px;">היום</button>
+          </div>
+          <div class="item2">                
+            <button class="btn btn--main" style="background-color: black; color: #FFC72C; font-weight: bold; font-size: 15px; width: 120px;">השבוע</button>
+          </div>
+          <div class="item3">                
+            <button class="btn btn--main" style="background-color: black; color: #FFC72C; font-weight: bold; font-size: 15px; width: 120px;">החודש</button>
+          </div>  
+          <div class="item4">                
+            <button class="btn btn--main" style="background-color: black; color: #FFC72C; font-weight: bold; font-size: 15px; width: 120px;">השנה</button>
+          </div>
+          <div class="item5">                
+            <button class="btn btn--main" style="background-color: black; color: #FFC72C; font-weight: bold; font-size: 15px; width: 120px;">כל הזמנים</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="content-box" style="margin-top: -1rem">
+      <div class="formWrapper">
+
+        
+          {% for recipe in recipes %} 
+          <a href="{% url 'recipe' recipe.id %}" class="recipe">
+            <div class="card" style="height: 13rem; margin-top: -1rem;">
+              <div class="card-body">
+                <div class="grid">
+                  <div class="column" style="margin-top: -1rem;" >
+                    <span class="card-circle"><h3_chart></h3_chart></span>
+                    
+                  </div>
+              <div class="column" style="margin-left: auto; margin-top: -3rem;">
+
+                <p style="margin-right: 3rem; margin-top: -4rem;   font-weight: bold; font-size: 25px;" class="card-title">{{recipe.title}}</p>
+                
+                <p class="project--rating" style="margin-right: 3.5rem; margin-top: 0.1rem;">
+                  <a class="project__author" href="{% url 'user-profile' recipe.owner.id %}"><img class="avatar avatar--sm" style="height: 30px; width: 30px;" src="{% static 'images/icons/eye_icon.png' %}" /></a>
+                  <a style="font-weight: bold;   margin-right: -2rem;" class="singleProject__developer">{{recipe.views}}</a>
+                  <a style="font-weight: bold;   margin-right: 8rem;" class="singleProject__developer"><img class="avatar avatar--sm" style="height: 30px; width: 30px;" src="{% static 'images/icons/love.png' %}" /></a>
+                  <a style="font-weight: bold;   margin-right: -2rem;" class="singleProject__developer">{{recipe.vote_total}}</a>
+                  <a class="project__author" style=" margin-right: 2rem" href="{% url 'user-profile' recipe.owner.id %}"><img class="avatar avatar--sm" style="height: 30px; width: 30px; margin-right: 0.01rem;" src="{{recipe.owner.profile_image.url}}" /></a>
+                  <a style="font-size: medium; margin-right: 0.5rem;" href="{% url 'user-profile' recipe.owner.id %}" class="singleProject__developer">מתכון של {{recipe.owner.username}}</a>
+              </p>   
+              </div> 
+              <div class="column" style="margin-top: -5rem;">
+                <a href="{% url 'recipe' recipe.id %}" class="recipe">
+
+                <img style="width: 200px; margin-top: -1rem;" src="{{recipe.featured_image.url}}">
+              </a>
+              </div>
+
+            </div>          
+              </div>
+            </div>
+        </a>
+          {% endfor%}
+  
+
+      </div>
+
+    </div>
+</main>
+
+
+{% endblock content %}

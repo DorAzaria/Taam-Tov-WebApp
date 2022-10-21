@@ -1,0 +1,29 @@
+.avatar {
+  border-radius: 50%;
+  border: 2px solid var(--color-main);
+  object-fit: cover;
+}
+
+.avatar--xl {
+  height: 20rem;
+  width: 20rem;
+}
+
+.avatar--lg {
+  height: 15rem;
+  width: 15rem;
+}
+
+.avatar--md {
+  height: 7rem;
+  width: 7rem;
+}
+
+.avatar--sm {
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  align-items:center;
+  transform: translateY(35%);
+  margin-right: -5rem;
+}

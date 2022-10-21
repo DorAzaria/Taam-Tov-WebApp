@@ -1,0 +1,77 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<main class="projects">
+    <section class="hero-section text-center">
+      <div class="container container--narrow" >
+        <div class="hero-section__box">
+          <h2>חפש/י <span>מתכונים</span></h2>
+        </div>
+
+        <div class="hero-section__search">
+          <form id='searchForm' class="form" action="{% url 'recipes' %}" method="get">
+            <div class="form__field">
+              <input class="input input--text" id="formInput#search" type="text" name="search_query"
+              value="{{search_query}}" placeholder="חפש/י לפי שם מתכון" />
+            </div>
+
+            <input class="btn btn--sub--outline btn--lg" type="submit" value="חפש/י" />
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Search Result: Recipe List -->
+
+    <section class="projectsList">
+      <div class="container">
+          <div class="grid grid--two">
+  
+              {% for recipe in recipes %}  
+              <div class="column">
+                  <div class="card project">
+                      <a href="{% url 'recipe' recipe.id %}" class="recipe">
+                      <img class="project__thumbnail" src="{{recipe.featured_image.url}}" alt="project thumbnail" />
+                      <div class="card__body">
+                          <h3 class="project__title">{{recipe.title}}</h3>
+                          
+                          <p class="project--rating">
+  
+                          <div class="column column--2of3" style="margin-top: -3rem; margin-right: -3rem;">
+                              <p class="project--rating" style="margin-right: 3.5rem; margin-top: 0.1rem;">
+                                  <a class="project__author" href="{% url 'user-profile' recipe.owner.id %}"><img class="avatar avatar--sm" style="height: 30px; width: 30px;" src="{% static 'images/icons/eye_icon.png' %}" /></a>
+                                  <a style="font-weight: bold;   margin-right: -2rem;" class="singleProject__developer">{{recipe.views}}</a>
+                                  <a style="font-weight: bold;   margin-right: 8rem;" class="singleProject__developer"><img class="avatar avatar--sm" style="height: 30px; width: 30px;" src="{% static 'images/icons/love.png' %}" /></a>
+                                  <a style="font-weight: bold;   margin-right: -2rem;" class="singleProject__developer">{{recipe.vote_total}}</a>
+                                  <a class="project__author" style=" margin-right: 2rem" href="{% url 'user-profile' recipe.owner.id %}">
+                              </p>
+
+                              <p style="margin-top: -3rem; margin-right: 1.5rem">
+                                  <img class="avatar avatar--sm" style="height: 30px; width: 30px; margin-right: 0.01rem;" src="{{recipe.owner.profile_image.url}}" /></a>
+                                  <a style="font-size: medium; margin-right: 0.5rem;" href="{% url 'user-profile' recipe.owner.id %}" class="singleProject__developer">מתכון של {{recipe.owner.username}}</a>
+
+                              </p>
+  
+                          </div>                          
+                          </p>
+  
+                          <div class="project__tags" style="margin-top: 1rem">
+                              {% for tag in recipe.tags.all %}
+                          <span class="tag tag--pill tag--main" style="background-color: #FFC72C; color: black;">
+                              <small style="background-color: #FFC72C; color: black;">{{tag}}</small>
+                          </span>
+                              {% endfor %}
+                          </div>
+                      </div>
+                      </a>
+                  </div>
+              </div> <!-- Column end-->
+              {% endfor %}
+          </div>
+      </div>
+  </section>
+    {% include 'pagination.html' with queryset=recipes custom_range=custom_range %}
+  </main>
+
+{% endblock content %}

@@ -1,0 +1,83 @@
+
+.wrapperchartcard{ 
+  display: flex; flex-flow: row; flex-wrap: wrap; justify-content: center; 
+}
+
+.wrapperchartcard > *{ 
+  margin: 0 1rem 2rem; 
+}
+
+/**************************************************
+** CARDS STYLING 
+***************************************************/
+/* Card outside box. Here is where the 
+** dimensions, shadows and borders are set 
+------------------------------------------ */
+
+.cardchart{
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  
+  width: 192px; /* Box dimensions */
+  height: 192px; 
+  
+  border-radius: 4px; /* Styling */
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);  
+  transition: box-shadow 0.56s ease-in-out; /* Animation */
+  /* background-color: rgba(0,0,0,.2); /* for debugging */
+}
+
+/* Shows an outer shadow */
+.cardchart:hover{ /* Just for styling */
+  cursor: pointer;
+  box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px -7px rgba(0,0,0,0.2);
+}
+
+/* Cards titles styling
+------------------------------------------ */
+.cardchart__title{ /* Just for styling */
+    align-self: center; 
+    padding: 5rem;
+    color: rgba(255,255,255,.90); 
+    font-size: 4rem;
+    line-height: 1;
+    font-weight: 600; 
+}  
+
+/* Styles for:
+** - Using IMG tag inside a container
+------------------------------------------ */
+/* The image container */
+.cardchart__thumbnail{
+  position: relative;
+  overflow: hidden;  
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center; /* vertical center */
+  
+  width: 100%; /* Thumbnail dimensions. */
+  height: 100%; /*** Change the height to make the image smaller ***/
+  /* background-color: rgba(0,0,0,.2);  /* for debugging */
+  
+}
+/* Sets the image dimensions */
+.cardchart__thumbnail > img{ /* Tip: use 1:1 ratio images */
+  height: 100%; /* or width when img.width > img.height */ 
+}  
+/* Styles the title inside the img container */
+.cardchart__thumbnail > .cardchart__title{ /* Just for styling */
+  position: absolute; left: 0; bottom: 0; }
+
+
+/* Styles for:
+** - Using background-size on CSS
+** - Using background-size on HTML
+** - Using background-size on JS
+------------------------------------------ */
+/* Prepares a container to have cover background */
+.has-bg-img{
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}

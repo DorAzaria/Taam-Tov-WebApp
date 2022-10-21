@@ -1,0 +1,210 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block content %}
+  <!-- Main Section -->
+  <div class="content-box" style="margin-top: 4rem">
+    
+    <div class="formWrapper">          
+    
+            <div class="card" style="height: 23.5rem; margin-top: -1rem; background-color: #FFC72C">
+              <div class="card-body">
+                <div class="grid">
+
+                  <div class="column" style="margin-left: auto; margin-top: 4rem;">
+
+                      <p style="margin-right: 4.5rem; margin-top: -4rem; font-weight: bold; font-size: 35px; color: black; word-wrap: break-word; width: 400px; text-align: center;" class="card-title">{{recipe.title}}</p>
+                      <hr style=" border: 3px solid white; border-radius: 5px; border-top: white ;width: 490px;">
+                      <p class="project--rating" style="margin-right: 0rem; margin-top: 0.09rem; text-align: center;">
+                        <a class="project__author" href="{% url 'user-profile' recipe.owner.id %}"><img class="avatar avatar--sm" style="height: 30px; width: 30px; border-color: #FFC72C;" src="{% static 'images/icons/eye_icon.png' %}" /></a>
+                        <a style="font-weight: bold;   margin-right: -2rem; color: black;" class="singleProject__developer" >{{recipe.views}}</a>
+                        <a style="font-weight: bold;   margin-right: 7rem; color: black ;" class="singleProject__developer"><img class="avatar avatar--sm" style="height: 30px; width: 30px; border-color: #FFC72C;" src="{% static 'images/icons/love.png' %}" /></a>
+                        <a style="font-weight: bold;   margin-right: -2rem; color: black;" class="singleProject__developer">{{recipe.vote_total}}</a>
+                        <a class="project__author" style=" margin-right: 2rem; color: black" href="{% url 'user-profile' recipe.owner.id %}"><img class="avatar avatar--sm" style="height: 30px; width: 30px; margin-right: 0.01rem; border-color: #FFC72C;" src="{{recipe.owner.profile_image.url}}" /></a>
+                        <a style="font-size: medium; margin-right: 0.5rem; color: black;" href="{% url 'user-profile' recipe.owner.id %}" class="singleProject__developer">מתכון של {{recipe.owner.username}}</a>
+                      </p>   
+                      <hr style="border: 3px solid white; border-radius: 5px; border-top: white">
+                      <p class="project--rating" style="margin-right: 0rem; margin-top: 0.09rem; text-align: center;">
+                        <a class="project__author" href="{% url 'user-profile' recipe.owner.id %}"><img class="avatar avatar--sm" style="height: 30px; width: 30px; border-color: #FFC72C;" src="{% static 'images/icons/clock_icon.png' %}" /></a>
+                        <a style="   margin-right: -2rem; color: black;" class="singleProject__developer" > 30 דקות</a>
+                        <a style="   margin-right: 1rem; color: black;" class="singleProject__developer" > | </a>
+
+                        <a style="    margin-right: 1rem; color: black;" class="singleProject__developer" > קל </a>
+                        <a style="  margin-right: 1rem; color: black;" class="singleProject__developer" > | </a>
+
+                        <a style="  margin-right: 1rem; color: black;" class="singleProject__developer" > בשרי </a>
+                        <a style="   margin-right: 1rem; color: black;" class="singleProject__developer" > | </a>
+
+                        <a style="  margin-right: 6rem; color: black ;" class="singleProject__developer"><img class="avatar avatar--sm" style="height: 30px; width: 30px; border-color: #FFC72C; " src="{% static 'images/icons/kosher_icon.png' %}" /></a>
+                        <a style="   margin-right: -2rem; color: black;" class="singleProject__developer">לא כשר</a>
+                        
+                        <a style="  margin-right: 1rem; color: black;" class="singleProject__developer" > | </a>
+
+                        <a class="project__author" style=" margin-right: 1rem; color: black" href="{% url 'user-profile' recipe.owner.id %}"><img class="avatar avatar--sm" style="height: 30px; width: 30px; margin-right: 0.01rem; border-color: #FFC72C;" src="{% static 'images/icons/team_icon.png' %}" /></a>
+                        <a style="font-size: medium; margin-right: 0.5rem; color: black;" href="{% url 'user-profile' recipe.owner.id %}" class="singleProject__developer"> 5 סועדים</a>
+                      </p>  
+                      <hr style="border: 3px solid white; border-radius: 5px; border-top: white">
+
+                      <p class="project--rating" style="margin-right: -5rem; margin-top: 1.5rem; text-align: center;">
+                        <a class="project__author" href="{% url 'user-profile' recipe.owner.id %}"><img  style="height: 30px; width: 30px; border-color: black;" src="{% static 'images/icons/facebook_icon.png' %}" /></a>
+                        <a class="project__author" href="{% url 'user-profile' recipe.owner.id %}"><img  style="height: 30px; width: 30px; border-color: black;" src="{% static 'images/icons/whatsapp_icon.png' %}" /></a>
+                        <a class="project__author" href="{% url 'user-profile' recipe.owner.id %}"><img  style="height: 30px; width: 30px; border-color: black;" src="{% static 'images/icons/mail_icon.png' %}" /></a>
+                        <a class="project__author" href="{% url 'user-profile' recipe.owner.id %}"><img  style="height: 30px; width: 30px; border-color: black;" src="{% static 'images/icons/print_icon.png' %}" /></a>
+                      </p>   
+                  </div> 
+
+                  <div class="column" style="margin-top: -5rem;">
+                    <a href="{% url 'recipe' recipe.id %}" class="recipe">
+                        <img style="width: 350px; height: 250px;  object-fit: cover; margin-top: 4rem;" src="{{recipe.featured_image.url}}">
+                    </a>
+                  </div>
+
+                </div>          
+              </div>
+            </div>
+ 
+
+            <div class="card" style="height: auto; margin-top: 1rem;">
+              <div class="card-body">
+                <p style="margin-right: 2rem; font-weight: bold; font-size: 20px; color: black; word-wrap: break-word; width: 400px;" class="card-title">על המתכון</p>
+                <hr style=" margin-right: 2rem; margin-top: -1rem; border: 3px solid #FFC72C; border-radius: 5px; border-top: #FFC72C ;width: 90px;">
+                <div class="singleProject__info" style="margin-top: 1rem; margin-right: 2rem;"> {{recipe.description|linebreaksbr}} </div>
+       
+              </div>
+            </div>
+
+          <div class="card" style="height: auto ; margin-top: 1rem;">
+            <div class="card-body">
+              
+              <p style="margin-right: 2rem; font-weight: bold; font-size: 20px; color: black; word-wrap: break-word; width: 400px;" class="card-title">מרכיבים</p>
+              <hr style=" margin-right: 2rem; margin-top: -1rem; border: 3px solid #FFC72C; border-radius: 5px; border-top: #FFC72C ;width: 70px;">
+              <div class="content-box" style="margin-top: 1rem">
+                <div class="formWrapper">
+
+                  
+                {% for ingredient in recipe.recipeingredient_set.all %}
+
+                      <div class="grid" style="margin-top: -1rem; margin-bottom: -3rem;">
+                        <div class="column" style="margin-top: 1.5rem; margin-right: 2rem;" >
+                          <input type="checkbox" style="background-color:#FFC72C ;">
+                          
+                        </div>
+                    <div class="column" style=" margin-right: 1rem; margin-top: 1rem;">
+      
+                      <p class="project--rating" style="margin-right: 1.5rem; margin-top: 0.1rem;">
+                       {{ ingredient.name }}
+
+                      </p>  
+                    </div>
+                    <div class="column" style="margin-right: 10rem; margin-top: 1rem;">
+      
+                      <p class="project--rating" style="margin-right: -3.5rem; margin-top: 0.1rem;">
+                        {{ingredient.quanity}}
+                      </p>  
+                    </div>
+                    <div class="column" style=" margin-right: 3rem; margin-top: 1rem;">
+      
+                      <p class="project--rating" style="margin-right: -3.5rem; margin-top: 0.1rem;">
+
+                        {{ingredient.unit}}
+                      </p>  
+                    </div>
+                  </div>
+                  <hr>
+                      {% endfor %}
+                     
+            </div>
+          </div>
+        </div>
+      </div>
+
+          <div class="card" style="height: auto; margin-top: 1rem;">
+            <div class="card-body">
+              <p style="margin-right: 2rem; font-weight: bold; font-size: 20px; color: black; word-wrap: break-word; width: 400px;" class="card-title">אופן ההכנה</p>
+              <hr style=" margin-right: 2rem; margin-top: -1rem; border: 3px solid #FFC72C; border-radius: 5px; border-top: #FFC72C ;width: 100px;">
+              <div class="content-box" style="margin-top: 1rem">
+                <div class="formWrapper">
+
+                  
+                {% for method in recipe.recipemethod_set.all %}
+
+                  <div class="card" style="height: 8rem; margin-top: 2rem;">
+                    <div class="card-body">
+                      <div class="grid">
+                        <div class="column" style="margin-top: 1.5rem;" >
+                          <span class="card-circle"><h3_chart></h3_chart></span>
+                          
+                        </div>
+                    <div class="column" style="margin-left: auto; margin-right: 1rem; margin-top: 1rem;">
+      
+                     
+                      {{ method.description }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+                      {% endfor %}
+                     
+            </div>
+          </div>
+        </div>
+      </div>
+        
+          <div class="card" style="height: auto; margin-top: 1rem; ">
+            <div class="card-body">
+              
+              <p style="margin-right: 2rem; margin-bottom: 0.5rem; margin-top: 0.5rem; font-weight: bold; font-size: 20px; color: black; word-wrap: break-word; width: 400px;" class="card-title"> תגובות ({{recipe.vote_total}})</p>
+              <hr style=" margin-right: 2rem; margin-top: -1rem; border: 3px solid #FFC72C; border-radius: 5px; border-top: #FFC72C ;width: 100px;">
+              {% if request.user.profile.id in recipe.commenters %}
+              <p  style="margin-right: 2rem;">כבר הגבת על מתכון זה.</p>
+            {% elif request.user.profile == recipe.owner %}
+              <p  style="margin-right: 2rem; margin-top: 1rem;">לא ניתן להגיב למתכון שלך.</p>
+            {% elif request.user.is_authenticated %}
+
+            <form class="form" action="{% url 'recipe' recipe.id %}" method="POST" style="margin-right: 5rem;">
+              {% csrf_token %}
+              {% for field in form %}
+              <div class="form__field">
+                <label for="formInput#textarea">{{field.label}}</label>
+                {{field}}
+              </div>
+              {% endfor %}
+              <input class="btn btn--sub btn--lg" type="submit" value="הגב/י" />
+            </form>
+            {% else %}
+                <a href="{% url 'login' %}?next={{request.path}}"  style="margin-right: 2rem; color: rgb(58, 58, 182);">נא התחברו כדי להגיב על מתכון זה!</a>
+            {% endif %}
+
+            <div class="commentList"  style="margin-right: 2rem; margin-top: 0rem;">
+              {% for comment in recipe.comment_set.all %}
+              {% if comment.body %}
+              <div class="card" style="height: 8rem; width: 80rem; margin-top: 1rem; ">
+                <div class="card-body">
+              <div class="comment">
+                <a href="{% url 'user-profile' comment.owner.id %}">
+                  <img class="avatar avatar--md"
+                    src="{{comment.owner.profile_image.url}}" alt="user" />
+                </a>
+
+                <div class="comment__details">
+                  <a href="{% url 'user-profile' comment.owner.id %}" class="comment__author">{{comment.owner.first_name}} {{comment.owner.last_name}}</a>
+                  <p class="comment__info">{{comment.body|linebreaksbr}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+              {% endif %}
+              {% endfor %}
+
+            </div>   
+            </div>
+          </div>
+ 
+    </div>
+    </div>
+
+    
+  </main>
+
+{% endblock %}
